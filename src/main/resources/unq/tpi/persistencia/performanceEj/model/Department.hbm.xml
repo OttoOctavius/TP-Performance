@@ -11,7 +11,7 @@
 
 		<property name="name" column="dept_name" />
 
-		<set name="employees" table="dept_emp" where="to_date = '9999-01-01'" lazy="false" fetch="join">
+		<set name="employees" table="dept_emp" where="to_date = '9999-01-01'" >
 			<key column="dept_no"/>
 			<many-to-many column="emp_no" class="unq.tpi.persistencia.performanceEj.model.Employee" />
 		</set>

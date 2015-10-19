@@ -8,7 +8,7 @@ class ListadoDeptosTest extends BaseListadoTest {
 	def void testListadoDeptos() {
 		val fileName = "./target/Deptos.csv"
 		new ListadoDeptos(fileName).generarListado();
-		this.assertListadoLength(2_524_739, fileName)
+		this.assertListadoLength(11, fileName)
 	}
 	
 }
