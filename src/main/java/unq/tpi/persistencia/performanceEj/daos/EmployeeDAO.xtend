@@ -23,5 +23,20 @@ class EmployeeDAO {
 		val session = SessionManager.getSession()
 		session.load(Employee, id) as Employee
 	}
+	
+	def getMaxSalarios(){
+		val session = SessionManager.getSession()
+		session.createQuery("from Employee emp fetch emp.salary order by emp.getSalary desc").iterate
+		//"with emp.salaries[ maxindex(emp.salaries) ] order by emp.salaries desc"
+	}
 
+/**
+ * Note that these constructs - size, elements, indices, minindex, maxindex, minelement, maxelement - may only be used in the where clause in Hibernate3.
+ * select item from Item item, Order order
+where order.items[ maxindex(order.items) ] = item and order.id = 11
+The expression inside [] may even be an arithmetic expression.
+
+select item from Item item, Order order
+where order.items[ size(order.items) - 1 ] = item
+ */
 }
