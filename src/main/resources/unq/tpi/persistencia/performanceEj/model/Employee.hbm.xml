@@ -35,7 +35,7 @@
 			<many-to-many column="dept_no" class="unq.tpi.persistencia.performanceEj.model.Department" />
 		</bag>
 
-		<set name="titles" table="titles" where="to_date = '9999-01-01'" lazy="false" fetch="join">
+		<set name="titles" table="titles" where="to_date = '9999-01-01'">
 			<key column="emp_no" />
 			<element column="title" type="java.lang.String" />
 		</set>
@@ -45,7 +45,7 @@
 			<element column="title" type="java.lang.String" />
 		</bag>
 		
-		<bag name="salaries" order-by="from_date" lazy="false" fetch="join">
+		<bag name="salaries" order-by="from_date">
 			<key column="emp_no" />
 			<one-to-many class="unq.tpi.persistencia.performanceEj.model.Salary" />
 		</bag>
